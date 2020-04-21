@@ -1,0 +1,24 @@
+{
+  "docs": {
+    "PREFACE": ["about_ekyc"],
+    "FACE": [
+      "introduction",
+      "search_face",
+      "face_indexing",
+      "bulk_face_indexing",
+      "compare_two_faces"
+    ],
+    "DOCUMENT": [
+      "document_verification",
+      "sss",
+      "UMID",
+      "tin",
+      "passport",
+      "license"
+    ],
+    "AML": ["aml_watchlist_verification", "aml"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
