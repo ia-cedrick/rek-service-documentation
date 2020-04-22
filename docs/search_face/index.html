@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Search Face · Test Site</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This document scopes the following item :"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Search Face · Test Site"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ia-cedrick.github.io/rek-service-documentation/"/><meta property="og:description" content="This document scopes the following item :"/><meta property="og:image" content="https://ia-cedrick.github.io/rek-service-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ia-cedrick.github.io/rek-service-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/rek-service-documentation/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ia-cedrick.github.io/rek-service-documentation/blog/atom.xml" title="Test Site Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ia-cedrick.github.io/rek-service-documentation/blog/feed.xml" title="Test Site Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rek-service-documentation/js/scrollSpy.js"></script><link rel="stylesheet" href="/rek-service-documentation/css/main.css"/><script src="/rek-service-documentation/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rek-service-documentation/"><img class="logo" src="/rek-service-documentation/img/favicon.ico" alt="Test Site"/><h2 class="headerTitleWithLogo">Test Site</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/rek-service-documentation/docs/about_ekyc" target="_self">Docs</a></li><li class=""><a href="/rek-service-documentation/docs/doc4" target="_self">API</a></li><li class=""><a href="/rek-service-documentation/help" target="_self">Help</a></li><li class=""><a href="/rek-service-documentation/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>FACE</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">PREFACE</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/about_ekyc">About</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">FACE</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/introduction">Introduction</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rek-service-documentation/docs/search_face">Search Face</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/face_indexing">Face Indexing</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/bulk_face_indexing">Bulk Indexing</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/compare_two_faces">Compare Face</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">DOCUMENT</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/document_verification">Introduction</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/sss">SSS</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/tin">TIN</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/passport">Passport</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/license">License</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">AML</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/aml_watchlist_verification">Introduction</a></li><li class="navListItem"><a class="navItem" href="/rek-service-documentation/docs/aml">AML Service</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Search Face</h1></header><article><div><span><p>This document scopes the following item :</p>
+<ul>
+<li><p>Introduction</p></li>
+<li><p>Requirements</p>
+<ul>
+<li>Url</li>
+<li>headers</li>
+<li>body</li>
+<li>sample response</li>
+</ul></li>
+<li><p>Usage</p></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h1>
+<p>One way to identify customer identity is searching thru stored database/collection to execute the validation, and return a needed response to tag the user as authenticated or legit.</p>
+<p>SearchFace API requires the image, authorization key, etc. as part of the request.</p>
+<h1><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h1>
+<h4><a class="anchor" aria-hidden="true" id="url"></a><a href="#url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Url</h4>
+<pre><code class="hljs">POST: http://<span class="hljs-symbol">&lt;SERVER_IP&gt;</span>:<span class="hljs-symbol">&lt;PORT&gt;</span>/<span class="hljs-keyword">ia</span>/faces/<span class="hljs-built_in">search</span>
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="headers"></a><a href="#headers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Headers</h4>
+<pre><code class="hljs">POST <span class="hljs-regexp">/ia/</span>faces<span class="hljs-regexp">/search HTTP/</span><span class="hljs-number">1.1</span>
+<span class="hljs-string">Connection:</span> keep-alive
+Content-<span class="hljs-string">Length:</span> <span class="hljs-number">163091</span>
+<span class="hljs-string">Authorization:</span><span class="hljs-number">64</span>FWlMjfhgiNeQGmrJEBM8D99A1nVNWEv2efeDzHZdH1WK2KOUjNbgcPZmvdawx38tS8m
+Content-<span class="hljs-string">Type:</span> application/json;charset=UTF<span class="hljs-number">-8</span>
+Accept-<span class="hljs-string">Encoding:</span> gzip, deflate, br
+Accept-<span class="hljs-string">Language:</span> en-US,en;q=<span class="hljs-number">0.9</span>
+<span class="hljs-string">Accept:</span> application<span class="hljs-regexp">/json, text/</span>plain, *<span class="hljs-comment">/*
+</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="body"></a><a href="#body" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Body</h4>
+<pre><code class="hljs">{
+<span class="hljs-symbol">    collection:</span> <span class="hljs-string">"&lt;COLLECTION_NAME&gt;"</span>,
+<span class="hljs-symbol">    image:</span> <span class="hljs-string">"&lt;BASE64_ENCODED_STRING&gt;"</span>,
+<span class="hljs-symbol">    faceMatchThreshold:</span> <span class="hljs-params">&lt;THRESOLD&gt;</span>,
+<span class="hljs-symbol">    maxFaces:</span> <span class="hljs-params">&lt;NUMBER_OF_FACES&gt;</span>,
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="sample-response"></a><a href="#sample-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample Response</h4>
+<pre><code class="hljs">{
+   <span class="hljs-attr">"message"</span>:<span class="hljs-string">"Successfuly find the face base on the image provided"</span>,
+   <span class="hljs-attr">"data"</span>:{
+      <span class="hljs-attr">"SearchedFaceBoundingBox"</span>:{
+         <span class="hljs-attr">"Width"</span>:<span class="hljs-number">0.18664303421974182</span>,
+         <span class="hljs-attr">"Height"</span>:<span class="hljs-number">0.4567655920982361</span>,
+         <span class="hljs-attr">"Left"</span>:<span class="hljs-number">0.4204493463039398</span>,
+         <span class="hljs-attr">"Top"</span>:<span class="hljs-number">0.3264122009277344</span>
+      },
+      <span class="hljs-attr">"SearchedFaceConfidence"</span>:<span class="hljs-number">99.99996185302734</span>,
+      <span class="hljs-attr">"FaceMatches"</span>:[
+         {
+            <span class="hljs-attr">"Similarity"</span>:<span class="hljs-number">99.83102416992188</span>,
+            <span class="hljs-attr">"Face"</span>:{
+               <span class="hljs-attr">"FaceId"</span>:<span class="hljs-string">"f739eda9-3669-4432-9b4f-11ac66296a2f"</span>,
+               <span class="hljs-attr">"BoundingBox"</span>:{
+                  <span class="hljs-attr">"Width"</span>:<span class="hljs-number">0.29492801427841187</span>,
+                  <span class="hljs-attr">"Height"</span>:<span class="hljs-number">0.46858999133110046</span>,
+                  <span class="hljs-attr">"Left"</span>:<span class="hljs-number">0.34393298625946045</span>,
+                  <span class="hljs-attr">"Top"</span>:<span class="hljs-number">0.37645500898361206</span>
+               },
+               <span class="hljs-attr">"ImageId"</span>:<span class="hljs-string">"dcf15e24-969a-3216-bdd0-4cbf42d6c13d"</span>,
+               <span class="hljs-attr">"ExternalImageId"</span>:<span class="hljs-string">"1asdasasdasd9123"</span>,
+               <span class="hljs-attr">"Confidence"</span>:<span class="hljs-number">99.9999008178711</span>
+            }
+         }
+      ],
+      <span class="hljs-attr">"FaceModelVersion"</span>:<span class="hljs-string">"4.0"</span>
+   }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="usage-javascript"></a><a href="#usage-javascript" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage (Javascript)</h1>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-16-tab-17" class="nav-link active" data-group="group_16" data-tab="tab-group-16-content-17">XMLHttpRequest</div><div id="tab-group-16-tab-18" class="nav-link" data-group="group_16" data-tab="tab-group-16-content-18">Fetch</div><div id="tab-group-16-tab-19" class="nav-link" data-group="group_16" data-tab="tab-group-16-content-19">Axios</div><div id="tab-group-16-tab-20" class="nav-link" data-group="group_16" data-tab="tab-group-16-content-20">jQuery</div></div><div class="tab-content"><div id="tab-group-16-content-17" class="tab-pane active" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-Js"><span class="hljs-keyword">let</span> request = <span class="hljs-keyword">new</span> XMLHttpRequest();<br /><br /><span class="hljs-keyword">const</span> params = {<br />    <span class="hljs-attr">collection</span>: <span class="hljs-string">"test-collection"</span>,<br />    <span class="hljs-attr">image</span>: <span class="hljs-string">"data/image:base64.."</span>,<br />    <span class="hljs-attr">faceMatchThreshold</span>: <span class="hljs-number">70</span>,<br />    <span class="hljs-attr">maxFaces</span>: <span class="hljs-number">1</span>,<br />}<br /><br />request.setRequestHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json;charset=UTF-8'</span>);<br />request.setRequestHeader(<span class="hljs-string">'Authorization'</span>, <span class="hljs-string">'64FWlMjfhgiNeQGmrJEBM8D99A1nVNWEv2efeDzHZdH1WK2KOU8'</span>);<br />request.setRequestHeader(<span class="hljs-string">'Accept'</span>, <span class="hljs-string">'application/json, text/plain, */*'</span>);<br /><br />request.open(<span class="hljs-string">"POST"</span>, <span class="hljs-string">"http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/ia/faces/search"</span>)<br />request.send(<span class="hljs-built_in">JSON</span>.stringify(params));<br /><br />request.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {<br />    <span class="hljs-keyword">if</span> (request.status !== <span class="hljs-number">201</span>) {<br />        <span class="hljs-keyword">return</span> request.response;<br />    } <span class="hljs-keyword">else</span> {<br />        <span class="hljs-keyword">let</span> resp = <span class="hljs-built_in">JSON</span>.parse(request.response);<br />        <span class="hljs-keyword">return</span> resp;<br />    }<br />}<br /></code></pre>
+</span></div></div><div id="tab-group-16-content-18" class="tab-pane" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> params = {<br />  <span class="hljs-attr">collection</span>: <span class="hljs-string">"test-collection"</span>,<br />  <span class="hljs-attr">image</span>: <span class="hljs-string">"data/image:base64.."</span>,<br />  <span class="hljs-attr">faceMatchThreshold</span>: <span class="hljs-number">70</span>,<br />  <span class="hljs-attr">maxFaces</span>: <span class="hljs-number">1</span>,<br />};<br /><br />fetch(<span class="hljs-string">"http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/ia/faces/search"</span>, {<br />  <span class="hljs-attr">method</span>: <span class="hljs-string">"POST"</span>,<br />  <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(params),<br />  <span class="hljs-attr">headers</span>: {<br />    <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json;charset=UTF-8"</span>,<br />    <span class="hljs-attr">Authorization</span>: <span class="hljs-string">"64FWlMjfhgiNeQGmrJEBM8D99A1nVNWEv2efeDzHZdH1WK2KOU8"</span>,<br />    <span class="hljs-attr">Accept</span>: <span class="hljs-string">"application/json, text/plain, */*"</span>,<br />  },<br />})<br />  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{<br />    <span class="hljs-keyword">return</span> response;<br />  })<br />  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{<br />    <span class="hljs-keyword">return</span> err;<br />  });<br /></code></pre>
+</span></div></div><div id="tab-group-16-content-19" class="tab-pane" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-Js"><span class="hljs-keyword">const</span> params = {<br />  <span class="hljs-attr">collection</span>: <span class="hljs-string">"test-collection"</span>,<br />  <span class="hljs-attr">image</span>: <span class="hljs-string">"data/image:base64.."</span>,<br />  <span class="hljs-attr">faceMatchThreshold</span>: <span class="hljs-number">70</span>,<br />  <span class="hljs-attr">maxFaces</span>: <span class="hljs-number">1</span>,<br />};<br /><br />axios.post(<span class="hljs-string">'http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/ia/faces/search'</span>, params, {<br />    <span class="hljs-attr">headers</span>: {<br />    <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json;charset=UTF-8"</span>,<br />    <span class="hljs-attr">Authorization</span>: <span class="hljs-string">"64FWlMjfhgiNeQGmrJEBM8D99A1nVNWEv2efeDzHZdH1WK2KOU8"</span>,<br />    <span class="hljs-attr">Accept</span>: <span class="hljs-string">"application/json, text/plain, */*"</span>,<br />  }<br />})<br />  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{<br />    <span class="hljs-keyword">return</span> response;<br />  })<br />  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{<br />    <span class="hljs-keyword">return</span> error;<br />  });<br /></code></pre>
+</span></div></div><div id="tab-group-16-content-20" class="tab-pane" data-group="group_16" tabindex="-1"><div><span><pre><code class="hljs css language-Js"><span class="hljs-keyword">const</span> params = {<br />  <span class="hljs-attr">collection</span>: <span class="hljs-string">"test-collection"</span>,<br />  <span class="hljs-attr">image</span>: <span class="hljs-string">"data/image:base64.."</span>,<br />  <span class="hljs-attr">faceMatchThreshold</span>: <span class="hljs-number">70</span>,<br />  <span class="hljs-attr">maxFaces</span>: <span class="hljs-number">1</span>,<br />};<br /><br />$.ajax({<br />    <span class="hljs-attr">url</span>: <span class="hljs-string">'http://&lt;SERVER_IP&gt;:&lt;PORT&gt;/ia/faces/search'</span>,<br />    <span class="hljs-attr">type</span>: <span class="hljs-string">"POST"</span>,<br />    <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(params),<br />    <span class="hljs-attr">headers</span>: {<br />        <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json;charset=UTF-8"</span>,<br />        <span class="hljs-attr">Authorization</span>: <span class="hljs-string">"64FWlMjfhgiNeQGmrJEBM8D99A1nVNWEv2efeDzHZdH1WK2KOU8"</span>,<br />        <span class="hljs-attr">Accept</span>: <span class="hljs-string">"application/json, text/plain, */*"</span>,<br />    },<br />    <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{<br />        <span class="hljs-keyword">return</span> response;<br />    },<br />    <span class="hljs-attr">error</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{<br />        <span class="hljs-keyword">return</span> error;<br />    }<br />})<br /></code></pre>
+</span></div></div></div></div>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rek-service-documentation/docs/introduction"><span class="arrow-prev">← </span><span>Introduction</span></a><a class="docs-next button" href="/rek-service-documentation/docs/face_indexing"><span>Face Indexing</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/rek-service-documentation/" class="nav-home"><img src="/rek-service-documentation/img/favicon.ico" alt="Test Site" width="66" height="58"/></a><div><h5>Docs</h5><a href="/rek-service-documentation/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/rek-service-documentation/docs/en/doc2.html">Guides (or other categories)</a><a href="/rek-service-documentation/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/rek-service-documentation/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/rek-service-documentation/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/rek-service-documentation/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>
